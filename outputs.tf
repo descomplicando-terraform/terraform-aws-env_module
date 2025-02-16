@@ -1,4 +1,4 @@
 output "public_ip" {
   description = "IPs públicos"
-  value       = { for key, instance in aws_instance.this : instance.tags["Env"] => instance.public_ip... }
+  value       = aws_instance.this.public_ip
 }
