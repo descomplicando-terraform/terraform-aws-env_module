@@ -1,9 +1,4 @@
 terraform {
-  backend "s3" {
-    bucket = "terraform-dan-2024"
-    key    = "check3"
-    region = "us-east-2"
-  }
 
     required_providers {
         aws = {
@@ -15,7 +10,7 @@ terraform {
 
 }
 
-# Configure the AWS Provider
+
 provider "aws" {
-  region = "us-east-2"
+  region = var.region_source
 }

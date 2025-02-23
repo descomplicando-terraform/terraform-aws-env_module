@@ -1,21 +1,35 @@
 variable "name" {
+  description = "Instance name"
   type        = string
-  description = "Nome da instancia"
+  
 }
 
 variable "environment" {
+  description = "Instance environment"
   type        = string
-  description = "Ambiente da instancia"
   default     = "dev"
 }
 
 variable "instance_type" {
+  description = "Which instance type to use"
   type        = string
-  description = "Tipo da Instância"
+  
 }
 
 variable "ebs_block_devices" {
-  description = "Lista de volumes ebs para ser mounted na instância"
+  description = "List of ebs block devices"
   type = list(any)
   default = []
+}
+
+variable "region_source" {
+  description = "Provider region"
+  type = string
+  default = "us-east-1"
+}
+
+variable user_data {
+  description = "User data script"
+  type        = string
+  default     = ""
 }

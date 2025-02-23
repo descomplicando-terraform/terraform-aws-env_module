@@ -1,6 +1,6 @@
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners = ["099720109477"] # Canonical
+  owners = ["099720109477"] # This is canonical
 
   filter {
     name   = "name"
@@ -17,6 +17,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "this" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
+  user_data =  var.user_data
 
   root_block_device {
       encrypted = true
@@ -38,13 +39,4 @@ resource "aws_instance" "this" {
       Env = var.environment
       Platform = data.aws_ami.ubuntu.platform_details
   }
-}
-
-data "terraform_remote_state" "aula_output" {
-  backend = "s3"
-  config = {
-    bucket = "terraform-dan-2024"
-    key = "check3"
-    region = "us-east-2"
-    }
 }
