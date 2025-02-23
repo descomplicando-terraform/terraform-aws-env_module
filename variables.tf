@@ -33,3 +33,8 @@ variable user_data {
   type        = string
   default     = ""
 }
+
+variable bucket_name {
+  description = "Bucket name for storage"
+  type        = string
+}
