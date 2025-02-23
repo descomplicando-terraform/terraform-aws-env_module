@@ -1,7 +1,7 @@
 name: testing-terraform
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  push:
+  pull_request:
 jobs:
   tfsec:
     runs-on: ubuntu-latest
