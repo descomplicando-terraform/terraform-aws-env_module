@@ -1,0 +1,14 @@
+name: testing-terraform
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+jobs:
+  tfsec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout branch  
+        uses: actions/checkout@v4
+      - name: install tfsec
+        run: curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+      - name: run tfsec
+        run: tfsec .
