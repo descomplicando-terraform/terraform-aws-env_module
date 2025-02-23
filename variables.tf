@@ -25,7 +25,6 @@ variable "ebs_block_devices" {
 variable "region_source" {
   description = "Provider region"
   type = string
-  default = "us-east-1"
 }
 
 variable user_data {
